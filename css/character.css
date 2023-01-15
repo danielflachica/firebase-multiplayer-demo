@@ -1,0 +1,68 @@
+.grid-cell {
+    position: absolute;
+    width: 16px; /* size of grid cell = 16x16 */
+    height: 16px;
+}
+
+.Character {
+    transition: transform 0.4s; /* smooth transitions movement */
+}
+.Character.you {
+    z-index: 1; /* Your character is layered on TOP of everyone else */
+}
+.Character.you .Character_you-arrow {
+    display: block; /* Only show arrow for your player; initially hidden */
+}
+.Character_you-arrow {
+    display: none;
+    position: absolute;
+    top: -18px;
+    left: 5px;
+    width: 7px;
+    height: 5px;
+    background: url(../img/arrow.png) no-repeat no-repeat;
+}
+.Character_sprite {
+    overflow: hidden;
+    top: -3px; /* so it appears to float on its cell */
+    background: url(../img/characters.png); /* entire sprite sheet - specific sprite will be based on bg position below */
+}
+.Character[data-direction="right"] .Character_sprite {
+    background-position-x: 16px;
+}
+.Character[data-color="red"] .Character_sprite {
+    background-position-y: -16px;
+}
+.Character[data-color="orange"] .Character_sprite {
+    background-position-y: -32px;
+}
+.Character[data-color="yellow"] .Character_sprite {
+    background-position-y: -48px;
+}
+.Character[data-color="green"] .Character_sprite {
+    background-position-y: -64px;
+}
+.Character[data-color="purple"] .Character_sprite {
+    background-position-y: -80px;
+}
+.Character_shadow {
+    background: url(../img/shadow.png) no-repeat no-repeat;
+}
+
+.Character_name-container {
+    position: absolute;
+    top: -12px;
+    left: -5px;
+    font-size: 5px; /* Note: this renders as 15px since everything's scaled up 3x */
+    padding: 1px 2px 1px;
+    border-radius: 3px;
+    background: #333;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.Character_coins {
+    margin-left: 1px;
+    color: gold; /* Coin count text = gold color */
+}
